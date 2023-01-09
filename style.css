@@ -1,1 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 
+body {
+    padding: 0;
+    margin: O;
+    background-color: #222222;
+}
+
+.chien {
+    margin-left: 5vw;
+    margin-top: 15vw;
+}
+
+h1 {
+    font-family: "Abril Fatface", sans-serif;
+    font-size: 5vw;
+    margin-left: 1vw;
+    margin-top: 1vw;
+    color: #F2F2F2;
+    letter-spacing: 0.5vw;
+}
