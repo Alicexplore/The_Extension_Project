@@ -11,3 +11,4 @@ getDogPhoto();
 
 // document.getElementById("displayPhoto").innerHTML = json.message .value
 document.getElementById("displayPhoto").src = json.message
+
