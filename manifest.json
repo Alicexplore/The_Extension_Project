@@ -1,0 +1,9 @@
+{
+    "manifest_version": 3,
+    "name": "Kult",
+    "description": "Welcome culture to your opening tab",
+    "version": "0.0.0.1",
+    "chrome_url_overrides" : {
+        "newtab": "index.html"
+      }
+  }
