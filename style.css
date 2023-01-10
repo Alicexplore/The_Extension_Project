@@ -20,7 +20,7 @@ body {
 }
 
 .card1 {
-    margin-top: 3.5vw;
+    margin-top: 4vw;
     width: 350px;
     height: 350px;
     position: relative;
@@ -140,20 +140,20 @@ body {
 .header h1 {
     font-family: "Abril Fatface", cursive;
     font-weight: 300;
-    font-size: 7vw;
-    margin-left: 1.5vw;
+    font-size: 6vw;
+    margin-left: 1.6vw;
     margin-top: -0.1vw;
-    color: #E2C202;
-    letter-spacing: 0.5vw;
+    color: #F2F2F2;
+    letter-spacing: 0.3vw;
 }
 
 .secondtitle {
     font-family: "apercu", sans-serif;
-    font-size: 1.35vw;
-    color: #F2F2F2;  /*#E2C202; #626262; */
+    font-size: 1vw;
+    color: #E2C202;  /*#E2C202; #626262; */
     letter-spacing: 0.3vw;
-    margin-left: 1.5vw;
-    margin-top: -6vw;
+    margin-left: 1.8vw;
+    margin-top: -5.1vw;
 }
 
 .menufavorites {
@@ -161,18 +161,18 @@ body {
     letter-spacing: 0.1vw;
     font-size: 1.15vw; 
     position: absolute;
-    margin-top: -8.9vw;
+    margin-top: -7.4vw;
     margin-left: 93vw;
 }
 
 .myfav {
     font-family: "apercu", sans-serif;
     letter-spacing: 0.1vw;
-    font-size: 2.5vw;
+    font-size: 2vw;
     font-weight: 900;
     position: absolute;
-    margin-top: -9.35vw;
-    margin-left: 84vw;
+    margin-top: -7.6vw;
+    margin-left: 86vw;
     color: #E2C202;
 }
 
