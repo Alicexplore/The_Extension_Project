@@ -118,10 +118,6 @@ body {
 
 }
 
-.card3:nth-child(1) .cardimage {
-    background-image: url(./IMG/logo.png);
-}
-
 .card3:hover {
     background: #363636;
     color: #F2F2F2;
@@ -164,28 +160,28 @@ body {
 
 .favorites1 {
     position: absolute;
-    margin-top: -19vw;
+    margin-top: -20vw;
     margin-left: -13vw;
     display: flex;
 }
 
 .favorites2 {
     position: absolute;
-    margin-top: -19vw;
+    margin-top: -20vw;
     margin-left: -13vw;
     display: flex;
 }
 
 .favorites3 {
     position: absolute;
-    margin-top: -19vw;
+    margin-top: -20vw;
     margin-left: -13vw;
     display: flex;
 }
 
 .favorites4 {
     position: absolute;
-    margin-top: -1vw;
-    margin-left: -58vw;
+    margin-top: -2vw;
+    margin-left: -59vw;
     display: flex;
 }
