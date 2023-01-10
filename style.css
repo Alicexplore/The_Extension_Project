@@ -1,29 +1,156 @@
 @import url('https://fonts.cdnfonts.com/css/apercu');
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 
-body {
+* {
     padding: 0;
     margin: O;
+    box-sizing: border-box;
+}
+
+body {
     background-color: #222222;
 }
 
-.chien {
-    margin-left: 5vw;
-    margin-top: 15vw;
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
 }
 
-h1 {
+.card1 {
+    margin-top: 3vw;
+    width: 350px;
+    height: 250px;
+    position: relative;
+    background: #2f2f2f;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    transition: all .3s ease-in;
+}
+
+.card2 {
+    margin-top: -1vw;
+    width: 350px;
+    height: 250px;
+    position: relative;
+    background: #2f2f2f;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    transition: all .3s ease-in;
+}
+
+/* .card > *{ 
+    padding: 20px;
+} */
+
+.card1 .cardimage {
+    height: 150px;
+    height: 150px;
+    border: 5px;
+    background-position: center center;
+    background-size: cover;
+}
+
+.card2 .cardimage {
+    height: 150px;
+    height: 150px;
+    border: 5px;
+    background-position: center center;
+    background-size: cover;
+}
+
+.card1 .card-title {
+    padding: 20px 10px;
+    font-size: 2vw;
+    color: #F2F2F2;
+}
+
+.card2 .card-title {
+    padding: 20px 10px;
+    font-size: 2vw;
+    color: #F2F2F2;
+}
+
+.card1:nth-child(1) .cardimage {
+    background-image: url(./IMG/logo.png);
+}
+
+.card1:nth-child(2) .cardimage {
+    background-image: url(./IMG/logo.png);
+}
+
+.card1:nth-child(3) .cardimage {
+    background-image: url(./IMG/logo.png);
+}
+
+.card1:hover {
+    background: #363636;
+    color: #F2F2F2;
+    box-shadow: 0px 0px 11px 2px #161616;
+}
+
+.card1 .card-text {
+    line-height: 20px;
+
+}
+
+.card2:nth-child(1) .cardimage {
+    background-image: url(./IMG/logo.png);
+}
+
+.card2:nth-child(2) .cardimage {
+    background-image: url(./IMG/logo.png);
+}
+
+.card2:nth-child(3) .cardimage {
+    background-image: url(./IMG/logo.png);
+}
+
+.card2:hover {
+    background: #363636;
+    color: #F2F2F2;
+    box-shadow: 0px 0px 11px 2px #161616;
+}
+
+.card2 .card-text {
+    line-height: 20px;
+
+}
+
+/* .chien {
+    margin-left: 5vw;
+    margin-top: 15vw;
+} */
+
+
+.header h1 {
     font-family: "Abril Fatface", cursive;
     font-size: 7vw;
-    margin-left: 1vw;
-    margin-top: 1vw;
+    margin-left: 1.5vw;
+    margin-top: -0.5vw;
     color: #F2F2F2;
-    letter-spacing: 0.5vw;
+    letter-spacing: 0.8vw;
 }
 
 .secondtitle {
     font-family: "apercu", sans-serif;
-    font-size: 2vw;
+    font-size: 1.3vw;
     color: #F2F2F2;
-    letter-spacing: 0.2vw;
+    letter-spacing: 0.4vw;
+    margin-left: 1.5vw;
+    margin-top: -5.8vw;
 }
