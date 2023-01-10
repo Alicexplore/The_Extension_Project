@@ -32,3 +32,26 @@ async function getArt(){
     )
 }
 getArt();
+
+
+// History Fact fetch by Driss
+fetch('http://history.muffinlabs.com/date')
+    .then(response => response.json())
+    .then(response => {
+        // Je séléctionne un évènement de naissance aléatoirement
+        console.log(response.data.Births.length)
+        let historyArrayLength = response.data.Births.length - 1
+        console.log(historyArrayLength)
+        let EventID = getRandomInt(historyArrayLength)
+        // J'extrait le texte de cet évènement
+        let eventDescription = document.createElement('p');
+        const myDescription = response.data.Births[EventID].text
+        eventDescription.innerText = myDescription
+        document.getElementById('history').appendChild(eventDescription);
+        // J'extrait l'année de l'évènement 
+        let eventYear = document.createElement('p');
+        const myEventYear = response.data.Births[EventID].year
+        eventYear.innerText = myEventYear
+        document.getElementById('history').appendChild(eventYear);
+    }
+    )
