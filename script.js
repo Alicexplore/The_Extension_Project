@@ -15,7 +15,7 @@
 // { return Math.floor(Math.random() * (max - min + 1)) + min;}
 // var entier = entierAleatoire(1, 471581);
 
-
+// fetch de l'API du Met
 async function getArt() {
     while (true) {
       let id = Math.floor(Math.random() * 50000) + 1;
@@ -33,25 +33,38 @@ async function getArt() {
 }
 getArt();
 
+// fetch API photo
+async function getPhoto(){
+  const url3 = "https://api.dp.la/v2/items?sourceResource.spatial.country=france&api_key=a880ef1d4315fa4283a5300b55cd3b44"
+  const result = await fetch(url3,
+    {mode: 'no-cors'}
+  );
+  result.json().then(json => {
+  console.log(json, "test");
+  document.getElementById("displayPhoto2").src = json;
+   })   
+}
+getPhoto();
+
 
 // History Fact fetch by Driss
-fetch('http://history.muffinlabs.com/date')
-    .then(response => response.json())
-    .then(response => {
-        // Je séléctionne un évènement de naissance aléatoirement
-        console.log(response.data.Births.length)
-        let historyArrayLength = response.data.Births.length - 1
-        console.log(historyArrayLength)
-        let EventID = getRandomInt(historyArrayLength)
-        // J'extrait le texte de cet évènement
-        let eventDescription = document.createElement('p');
-        const myDescription = response.data.Births[EventID].text
-        eventDescription.innerText = myDescription
-        document.getElementById('history').appendChild(eventDescription);
-        // J'extrait l'année de l'évènement 
-        let eventYear = document.createElement('p');
-        const myEventYear = response.data.Births[EventID].year
-        eventYear.innerText = myEventYear
-        document.getElementById('history').appendChild(eventYear);
-    }
-    )
+// fetch('http://history.muffinlabs.com/date')
+//     .then(response => response.json())
+//     .then(response => {
+//         // Je séléctionne un évènement de naissance aléatoirement
+//         console.log(response.data.Births.length)
+//         let historyArrayLength = response.data.Births.length - 1
+//         console.log(historyArrayLength)
+//         let EventID = getRandomInt(historyArrayLength)
+//         // J'extrait le texte de cet évènement
+//         let eventDescription = document.createElement('p');
+//         const myDescription = response.data.Births[EventID].text
+//         eventDescription.innerText = myDescription
+//         document.getElementById('history').appendChild(eventDescription);
+//         // J'extrait l'année de l'évènement 
+//         let eventYear = document.createElement('p');
+//         const myEventYear = response.data.Births[EventID].year
+//         eventYear.innerText = myEventYear
+//         document.getElementById('history').appendChild(eventYear);
+//     }
+//     )
