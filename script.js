@@ -47,24 +47,51 @@ async function getPhoto(){
 getPhoto();
 
 
-// History Fact fetch by Driss
-// fetch('http://history.muffinlabs.com/date')
-//     .then(response => response.json())
-//     .then(response => {
-//         // Je séléctionne un évènement de naissance aléatoirement
-//         console.log(response.data.Births.length)
-//         let historyArrayLength = response.data.Births.length - 1
-//         console.log(historyArrayLength)
-//         let EventID = getRandomInt(historyArrayLength)
-//         // J'extrait le texte de cet évènement
-//         let eventDescription = document.createElement('p');
-//         const myDescription = response.data.Births[EventID].text
-//         eventDescription.innerText = myDescription
-//         document.getElementById('history').appendChild(eventDescription);
-//         // J'extrait l'année de l'évènement 
-//         let eventYear = document.createElement('p');
-//         const myEventYear = response.data.Births[EventID].year
-//         eventYear.innerText = myEventYear
-//         document.getElementById('history').appendChild(eventYear);
-//     }
-//     )
+// Driss - J'utilise une API pour récupérer des informations historiques sur la base "ce jour en année X il s'est passé ça"
+
+// Problème aditionnel : pour d'obscure raisons mes appel API reste bloqués au résultats du 10/01 (cad quand j'ai commencé à coder cet appel d'API). Alors même que copier manuellement, l'adresse permet bien http://history.muffinlabs.com/date d'obtenir le resultats du jour même. Pour l'instant, le workaround est de préciser soit même la date en ajoutant /mois/jour sur le modèle /1/11 pour le 11 janvier. Si le problème persiste je vais coder JS pour qu'il détecte lui même la date et précise la date dans l'addresse à fetcher.
+
+// Mon workaround pour résoudre ce problème de date : Je demande à JS de détecter la date actuelle. Puis j'ajoute ces informations à l'URL de base afin de faire le bon fetch API et récupérer les données que je souhaite.
+
+const date = new Date();
+
+let day = date.getDate();
+let month = date.getMonth() + 1;
+
+let basicURL = 'http://history.muffinlabs.com/date/'
+
+let myURL = basicURL + month + "/" + day
+
+// Une fonction pour obtenir un nombre entier(floor) maximum. Je l'utilise plus tard pour choisir une personnalité aléatoirement.
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+// Le code qui appel l'API et restitue les données que je souhaite.
+
+fetch(myURL)
+    .then(response => response.json())
+    .then(response => {
+        // Je séléctionne un évènement de naissance aléatoirement
+        let historyArrayLength = response.data.Births.length - 1
+        let EventID = getRandomInt(historyArrayLength)
+        // J'extrait le texte de cet évènement
+        let eventDescription = document.createElement('p');
+        const myDescription = response.data.Births[EventID].text
+        eventDescription.innerText = myDescription
+        document.getElementById('History').appendChild(eventDescription);
+        // J'extrait l'année de l'évènement 
+        let eventYear = document.createElement('p');
+        const myEventYear = response.data.Births[EventID].year
+        eventYear.innerText = myEventYear
+        document.getElementById('History').appendChild(eventYear);
+        // J'ajoute le lien wikipedia
+        let eventLink= document.createElement('a');
+        let myLink = response.data.Births[EventID].links[0].link
+        eventLink.href = myLink
+        eventLink.target="_blank"
+        eventLink.innerText = "Learn more about this person ✍️(◔◡◔)"
+        document.getElementById('History').appendChild(eventLink)
+    }
+    )
