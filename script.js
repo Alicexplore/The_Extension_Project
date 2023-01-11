@@ -1,13 +1,14 @@
-
-// const url = `https://dog.ceo/api/breeds/image/random`;
-// async function getDogPhoto() {
-//     const result = await fetch(url);
-//     result.json().then(json => {
-//     console.log(json.message);
-//     document.getElementById("displayPhoto").src = json.message
-//     })   
-// }
-// getDogPhoto();
+const url = `https://data.opendatasoft.com/api/records/1.0/search/?dataset=grands-documents-et-images-de-lhistoire-de-france-conserves-par-les-archives-%40culture&q=&rows=423&facet=date&facet=support`;
+async function getFrenchHistoricalFacts() {
+  const result = await fetch(url);
+  result.json().then(json => {
+  console.log(json);
+  document.getElementById("historic_Photo").src = json.records.fields.image; //photo
+  document.getElementById("title_Date_Historic_Photo").innerHTML = json.records.fields.titre_du_document + "" + json.records.fields.date_du_document; //titre + date
+  document.getElementById("description_Historic_Photo").innerHTML = json.records.fields.description_du_document; //description
+  })   
+}
+getFrenchHistoricalFacts();
 
 
 //Génère un entier aléatoire pour proposer un ID d'oeuvre
