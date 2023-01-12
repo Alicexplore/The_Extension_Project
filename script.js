@@ -2,8 +2,8 @@ const url = `https://data.opendatasoft.com/api/records/1.0/search/?dataset=grand
 async function getFrenchHistoricalFacts() {
   const result = await fetch(url);
   result.json().then(json => {
-  console.log(json);
-  document.getElementById("historic_Photo").src = json.records.fields.image; //photo
+  //console.log(json);
+  document.getElementById("historic_Photo").src = json.records.fields.image.filename; //photo
   document.getElementById("title_Date_Historic_Photo").innerHTML = json.records.fields.titre_du_document + "" + json.records.fields.date_du_document; //titre + date
   document.getElementById("description_Historic_Photo").innerHTML = json.records.fields.description_du_document; //description
   })   
