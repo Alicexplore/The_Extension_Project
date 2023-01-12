@@ -77,22 +77,22 @@ fetch(myURL)
         // Je séléctionne un évènement de naissance aléatoirement
         let historyArrayLength = response.data.Births.length - 1
         let EventID = getRandomInt(historyArrayLength)
-        // J'extrait le texte de cet évènement
-        let eventDescription = document.createElement('p');
-        const myDescription = response.data.Births[EventID].text
-        eventDescription.innerText = myDescription
-        document.getElementById('History').appendChild(eventDescription);
         // J'extrait l'année de l'évènement 
         let eventYear = document.createElement('p');
         const myEventYear = response.data.Births[EventID].year
         eventYear.innerText = myEventYear
-        document.getElementById('History').appendChild(eventYear);
+        document.getElementById('history').appendChild(eventYear);
+        // J'extrait le texte de cet évènement
+        let eventDescription = document.createElement('p');
+        const myDescription = response.data.Births[EventID].text
+        eventDescription.innerText = myDescription
+        document.getElementById('history').appendChild(eventDescription);
         // J'ajoute le lien wikipedia
         let eventLink= document.createElement('a');
         let myLink = response.data.Births[EventID].links[0].link
         eventLink.href = myLink
         eventLink.target="_blank"
         eventLink.innerText = "Learn more about this person ✍️(◔◡◔)"
-        document.getElementById('History').appendChild(eventLink)
+        document.getElementById('history').appendChild(eventLink)
     }
     )
