@@ -11,11 +11,6 @@ async function getFrenchHistoricalFacts() {
 }
 getFrenchHistoricalFacts();
 
-//Génère un entier aléatoire pour proposer un ID d'oeuvre
-// function entierAleatoire(min, max)
-// { return Math.floor(Math.random() * (max - min + 1)) + min;}
-// var entier = entierAleatoire(1, 471581);
-
 // fetch de l'API du Met
 async function getArt() {
   while (true) {
@@ -36,17 +31,78 @@ async function getArt() {
 }
 getArt();
 
-// fetch API photo
-async function getPhoto() {
-  const url3 =
-    "https://api.dp.la/v2/items?sourceResource.spatial.country=france&api_key=a880ef1d4315fa4283a5300b55cd3b44";
-  const result = await fetch(url3, { mode: "no-cors" });
-  result.json().then((json) => {
-    console.log(json, "test");
-    document.getElementById("displayPhoto2").src = json;
-  });
-}
-getPhoto();
+//Génère un entier aléatoire 
+function entierAleatoire(min, max)
+{ return Math.floor(Math.random() * (max - min + 1)) + min;}
+var entier = entierAleatoire(0, 29);
+console.log("test", entier)
+
+let tabImg = [
+  "photosHistoriques/1.png",
+  "photosHistoriques/2.png",
+  "photosHistoriques/3.png",
+  "photosHistoriques/4.png",
+  "photosHistoriques/5.png",
+  "photosHistoriques/6.png",
+  "photosHistoriques/7.png",
+  "photosHistoriques/8.png",
+  "photosHistoriques/9.png",
+  "photosHistoriques/10.png", 
+  "photosHistoriques/11.png",
+  "photosHistoriques/12.png",
+  "photosHistoriques/13.png",
+  "photosHistoriques/14.png",
+  "photosHistoriques/15.png", 
+  "photosHistoriques/16.png",
+  "photosHistoriques/17.png",
+  "photosHistoriques/18.png",
+  "photosHistoriques/19.png",
+  "photosHistoriques/20.png",
+  "photosHistoriques/21.png",
+  "photosHistoriques/22.png",
+  "photosHistoriques/23.png",
+  "photosHistoriques/24.png",
+  "photosHistoriques/25.png",
+  "photosHistoriques/26.png",
+  "photosHistoriques/27.png",
+  "photosHistoriques/28.png",
+  "photosHistoriques/29.png",
+  "photosHistoriques/30.png"
+]
+let tabLegende = [
+  "Steven Spielberg et George Lucas en pleine bataille de pistolets à eau en 1983",
+  "Un seul homme refuse de faire le salut nazi en 1936",
+  "La tombe scellée de Toutankhamon en 1922",
+  "La première usine Harley-Davidson en 1903",
+  "La première édition de Woodstock en 1969",
+  "Elvis en 1956",
+  "Obama et son équipe de basket à l'école secondaire",
+  "Arnold Schwarzenegger découvre pour la première fois les Etats-Unis en 1968",
+  "Le Titanic quittant Southampton en 1912",
+  "Times Square, 1945",
+  "Fidel Castro et Che Guevarra en pleine partie de pêche en 1960",
+  "Tournage du générique MGM en 1928",
+  "Machine pour soigner les tâches de rousseur dans les années 30",
+  "Des animaux étaient utilisés pour certaines thérapies en 1956",
+  "Des peintres sur le pont de Brooklyn en 1914",
+  "Des nouvelles chaussures durant la Seconde Guerre mondiale",
+  "Des peintres sur la Tour Eiffel en 1932",
+  "Pause déjeuner pour les employés de Disneyland, 1961",
+  "Une petite fille et sa poupée au milieu des décombres des bombardements sur Londres en 1940",
+  "Débarquement en Normandie",
+  "Un masque à gaz sur un cheval durant la Seconde Guerre mondiale",
+  "Un concert des Beatles en 1961, avant leur succès",
+  "Charlie Chaplin à l'âge de 27 ans",
+  "Le naufrage du Titanic fait la une des journaux en 1912",
+  "Un homme fait du bouche-à-bouche à son collègue qui vient de se faire électrocuter",
+  "Einstein à New York en 1939",
+  "Les essais électriques de Nikola Tesla",
+  "La dernière photo du Titanic, 1912",
+  "Une cage pour faire prendre l'air et le soleil aux enfants, 1937",
+  "Ouverture de l'Empire State Building en 1931",
+]
+document.getElementById("historyImages").src=tabImg[entier];
+document.getElementById("legendImage").innerHTML=tabLegende[entier];
 
 // Driss - J'utilise une API pour récupérer des informations historiques sur la base "ce jour en année X il s'est passé ça"
 
