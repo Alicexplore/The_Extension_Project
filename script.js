@@ -1,15 +1,24 @@
-const url = `https://data.opendatasoft.com/api/records/1.0/search/?dataset=grands-documents-et-images-de-lhistoire-de-france-conserves-par-les-archives-%40culture&q=&rows=423&facet=date&facet=support`;
-async function getFrenchHistoricalFacts() {
-  const result = await fetch(url);
-  result.json().then((json) => {
-    console.log("test", json.records[3].fields.image.filename);
-    console.log("source", json.records[3].fields.source);
-    document.getElementById("historic_Photo").src = json.records[0].fields.image.filename; //photo
-    document.getElementById("title_Date_Historic_Photo").innerHTML = json.records[5].fields.titre_du_document + " // " + json.records[5].fields.date_du_document;  //titre + date
-    document.getElementById("description_Historic_Photo").innerHTML = json.records[5].fields.description_du_document; //description
-  });
-}
-getFrenchHistoricalFacts();
+const url = {
+  method: "GET",
+  headers: {
+    "X-RapidAPI-Key": "16cf5c6822msh8187abb91aed8eep1407e5jsn11e70d0fa6ba",
+    "X-RapidAPI-Host": "imdb-top-100-movies.p.rapidapi.com",
+  },
+};
+
+const getCinema = async () => {
+  const response = await fetch(
+    "https://imdb-top-100-movies.p.rapidapi.com/",
+    url
+  );
+  const data = await response.json();
+  console.log(data);
+  document.getElementById("getcinema_Photo").src = data[0].image;
+  document.getElementById("getcinema_Title").innerHTML = data[0].genre.title + " " + data[0].year;
+  document.getElementById("getcinema_Synopsis").innerHTML = data[0].description;
+};
+
+getCinema();
 
 //Génère un entier aléatoire pour proposer un ID d'oeuvre
 // function entierAleatoire(min, max)
@@ -19,7 +28,7 @@ getFrenchHistoricalFacts();
 // fetch de l'API du Met
 async function getArt() {
   while (true) {
-    let id = Math.floor(Math.random() * 50000) + 1; 
+    let id = Math.floor(Math.random() * 50000) + 1;
     const url2 =
       "https://collectionapi.metmuseum.org/public/collection/v1/objects/" + id;
     const result = await fetch(url2);
@@ -72,27 +81,26 @@ function getRandomInt(max) {
 // Le code qui appel l'API et restitue les données que je souhaite.
 
 fetch(myURL)
-    .then(response => response.json())
-    .then(response => {
-        // Je séléctionne un évènement de naissance aléatoirement
-        let historyArrayLength = response.data.Births.length - 1
-        let EventID = getRandomInt(historyArrayLength)
-        // J'extrait l'année de l'évènement 
-        let eventYear = document.createElement('p');
-        const myEventYear = response.data.Births[EventID].year
-        eventYear.innerText = myEventYear
-        document.getElementById('history').appendChild(eventYear);
-        // J'extrait le texte de cet évènement
-        let eventDescription = document.createElement('p');
-        const myDescription = response.data.Births[EventID].text
-        eventDescription.innerText = myDescription
-        document.getElementById('history').appendChild(eventDescription);
-        // J'ajoute le lien wikipedia
-        let eventLink= document.createElement('a');
-        let myLink = response.data.Births[EventID].links[0].link
-        eventLink.href = myLink
-        eventLink.target="_blank"
-        eventLink.innerText = "Learn more about this person ✍️(◔◡◔)"
-        document.getElementById('history').appendChild(eventLink)
-    }
-    )
+  .then((response) => response.json())
+  .then((response) => {
+    // Je séléctionne un évènement de naissance aléatoirement
+    let historyArrayLength = response.data.Births.length - 1;
+    let EventID = getRandomInt(historyArrayLength);
+    // J'extrait l'année de l'évènement
+    let eventYear = document.createElement("p");
+    const myEventYear = response.data.Births[EventID].year;
+    eventYear.innerText = myEventYear;
+    document.getElementById("history").appendChild(eventYear);
+    // J'extrait le texte de cet évènement
+    let eventDescription = document.createElement("p");
+    const myDescription = response.data.Births[EventID].text;
+    eventDescription.innerText = myDescription;
+    document.getElementById("history").appendChild(eventDescription);
+    // J'ajoute le lien wikipedia
+    let eventLink = document.createElement("a");
+    let myLink = response.data.Births[EventID].links[0].link;
+    eventLink.href = myLink;
+    eventLink.target = "_blank";
+    eventLink.innerText = "Learn more about this person ✍️(◔◡◔)";
+    document.getElementById("history").appendChild(eventLink);
+  });
