@@ -4,7 +4,7 @@ async function getFrenchHistoricalFacts() {
   result.json().then((json) => {
     console.log("test", json.records[3].fields.image.filename);
     console.log("source", json.records[3].fields.source);
-    document.getElementById("historic_Photo").src = json.records[0].fields.image.filename; //photo
+    document.getElementById("historic_Photo").src = "http://www2.culture.gouv.fr/Wave/image/archim/AF/" + json.records[5].fields.image.filename; //photo
     document.getElementById("title_Date_Historic_Photo").innerHTML = json.records[5].fields.titre_du_document + " // " + json.records[5].fields.date_du_document;  //titre + date
     document.getElementById("description_Historic_Photo").innerHTML = json.records[5].fields.description_du_document; //description
   });
