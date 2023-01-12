@@ -34,6 +34,7 @@ body {
     border-radius: 10px;
     padding: 20px;
     transition: all .3s ease-in;
+    
 }
 
 
@@ -211,4 +212,27 @@ body {
 .history{
      font-size: medium;
     color: #F2F2F2;
+}
+
+#historyImages, #displayPhoto2{
+    
+        margin-top: 4vw;
+        width: 350px;
+        height: 350px;
+        position: relative;
+        background: #2f2f2f;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 10px;
+        transition: all .3s ease-in;
+    
+}
+
+.card-image, .card-text{
+    position: absolute;
+    z-index: 1;
 }
