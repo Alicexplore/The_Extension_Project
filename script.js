@@ -166,6 +166,15 @@ fetch(myURL)
 
 // test des boutons
 
+function updateIcon() {
+  chrome.bookmarks.create({parentId: bookmarkBar.id,
+                       title: 'Extension bookmarks'});
+                }
+                console.log(updateIcon);
+
+chrome.browserAction.onClicked.addListener(updateIcon);
+updateIcon();
+
 function bookmarkSelected(){
   chrome.bookmarks.create(
     {'title': 'Extension bookmarks'},
