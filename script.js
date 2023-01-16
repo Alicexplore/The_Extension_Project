@@ -18,7 +18,14 @@ const url = {
 //   }
 // };
 
-// getCinema();
+function bookmarkSelected3(){
+  console.log("Bookmark number 3 has been selected ( ﾉ ﾟｰﾟ)ﾉ");
+  //createBookmark3()
+}
+
+document.getElementById("buttonBookmark3").addEventListener("click", bookmarkSelected3);
+
+//getCinema();
 
 // fetch de l'API du Met
 async function getArt() {
@@ -37,6 +44,12 @@ async function getArt() {
       break;
     }
   }
+  function bookmarkSelected1(){
+    console.log("bookmark Number 1 has been selected ヾ(⌐■_■)ノ♪");
+    //createBookmark1()
+  }
+  
+  document.getElementById("buttonBookmark1").addEventListener("click", bookmarkSelected1);
 }
 getArt();
 
@@ -113,6 +126,13 @@ let tabLegende = [
 document.getElementById("historyImages").src=tabImg[entier];
 document.getElementById("legendImage").innerHTML=tabLegende[entier];
 
+function bookmarkSelected2(){
+  console.log("Bookmark number 2 has been selected (づ￣ 3￣)づ");
+  //createBookmark2()
+}
+
+document.getElementById("buttonBookmark2").addEventListener("click", bookmarkSelected2);
+
 // Driss - J'utilise une API pour récupérer des informations historiques sur la base "ce jour en année X il s'est passé ça"
 
 // Problème aditionnel : pour d'obscure raisons mes appel API reste bloqués au résultats du 10/01 (cad quand j'ai commencé à coder cet appel d'API). Alors même que copier manuellement, l'adresse permet bien http://history.muffinlabs.com/date d'obtenir le resultats du jour même. Pour l'instant, le workaround est de préciser soit même la date en ajoutant /mois/jour sur le modèle /1/11 pour le 11 janvier. Si le problème persiste je vais coder JS pour qu'il détecte lui même la date et précise la date dans l'addresse à fetcher.
@@ -159,6 +179,24 @@ fetch(myURL)
         eventLink.target="_blank"
         eventLink.innerText = "Learn more about this person ✍️(◔◡◔)"
         document.getElementById('history').appendChild(eventLink)
+
+
+        function createBookmark4(){
+          chrome.bookmarks.create({
+            'title' : myDescription ,
+            'url' : myLink
+          },
+          function(newBookmark){
+            console.log("added bookmark: " + newBookmark.title )
+          }
+        )
+        }
+        function bookmarkSelected4(){
+          console.log("Bookmark number 4 has been selected ヾ(＠⌒ー⌒＠)ノ");
+          //createBookmark4()
+        }
+        
+        document.getElementById("buttonBookmark4").addEventListener("click", bookmarkSelected4);
     }
     )
 
@@ -166,22 +204,24 @@ fetch(myURL)
 
 // test des boutons
 
-function updateIcon() {
-  chrome.bookmarks.create({parentId: bookmarkBar.id,
-                       title: 'Extension bookmarks'});
-                }
-                console.log(updateIcon);
 
-chrome.browserAction.onClicked.addListener(updateIcon);
-updateIcon();
 
-function bookmarkSelected(){
-  chrome.bookmarks.create(
-    {'title': 'Extension bookmarks'},
-    function(newFolder) {
-      console.log("added folder: " + newFolder.title);
-    },
-  );
-}
 
-document.getElementById("buttonBookmark").addEventListener("click", bookmarkSelected);
+
+/* //create a bookmark forlder. Be warned, it creates a new one with the same name eveytime it is called upon
+chrome.bookmarks.create(
+  {'title' : 'Bookmarks Forlder'},
+  function(newFolder) {
+    console.log("added folder: " + newFolder.title);
+  },
+) */
+
+/* // create a bookmark
+chrome.bookmarks.create({
+    'title' : 'SteamCode Youtube',
+    'url' : 'https://www.youtube.com/watch?v=SahfSL6IwQk'
+  },
+  function(newBookmark){
+    console.log("added bookmark: " + newBookmark.title )
+  }
+) */
