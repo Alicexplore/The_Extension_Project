@@ -96,3 +96,11 @@ fetch(myURL)
         document.getElementById('history').appendChild(eventLink)
     }
     )
+
+// Bookmark system
+
+// test des boutons
+
+function bookmarkSelected(){
+  console.log("A bookmark has been selected ヾ(＠⌒ー⌒＠)ノ")
+}

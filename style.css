@@ -182,6 +182,7 @@ body {
 }
 
 .favorites1 {
+    cursor:pointer;
     position: absolute;
     margin-top: -20vw;
     margin-left: -13vw;
@@ -189,6 +190,7 @@ body {
 }
 
 .favorites2 {
+    cursor:pointer;
     position: absolute;
     margin-top: -20vw;
     margin-left: -13vw;
@@ -196,6 +198,7 @@ body {
 }
 
 .favorites3 {
+    cursor:pointer;
     position: absolute;
     margin-top: -20vw;
     margin-left: -13vw;
@@ -203,6 +206,7 @@ body {
 }
 
 .favorites4 {
+    cursor:pointer;
     position: absolute;
     margin-top: -2vw;
     margin-left: -59vw;
