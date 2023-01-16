@@ -6,19 +6,19 @@ const url = {
   },
 };
 
-const getCinema = async () => {
-  const response = await fetch(
-    "https://imdb-top-100-movies.p.rapidapi.com/", url);
-  const data = await response.json();
-  console.log(data);
-  for(i = 0; i < data.length; i++){
-    document.getElementById("getcinema_Photo").src = data[i].image;
-    document.getElementById("getcinema_Title").innerHTML = data[i].title + " " + data[i].year;
-    document.getElementById("getcinema_Synopsis").innerHTML = data[i].description;
-  }
-};
+// const getCinema = async () => {
+//   const response = await fetch(
+//     "https://imdb-top-100-movies.p.rapidapi.com/", url);
+//   const data = await response.json();
+//   console.log(data);
+//   for(i = 0; i < data.length; i++){
+//     document.getElementById("getcinema_Photo").src = data[i].image;
+//     document.getElementById("getcinema_Title").innerHTML = data[i].title + " " + data[i].year;
+//     document.getElementById("getcinema_Synopsis").innerHTML = data[i].description;
+//   }
+// };
 
-getCinema();
+// getCinema();
 
 // fetch de l'API du Met
 async function getArt() {
@@ -167,5 +167,12 @@ fetch(myURL)
 // test des boutons
 
 function bookmarkSelected(){
-  console.log("A bookmark has been selected ヾ(＠⌒ー⌒＠)ノ")
+  chrome.bookmarks.create(
+    {'title': 'Extension bookmarks'},
+    function(newFolder) {
+      console.log("added folder: " + newFolder.title);
+    },
+  );
 }
+
+document.getElementById("buttonBookmark").addEventListener("click", bookmarkSelected);
