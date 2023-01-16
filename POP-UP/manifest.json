@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "name": "brain",
+    "description": "Welcome culture to your opening tab",
+    "version": "0.0.0.1",
+    "content_scripts": [
+      { 
+        "matches":[
+          "<all_urls>"
+        ],
+        "js" : ["content.js"]
+      }
+    ],
+    "browser_action": {
+    "default_icon": "logo.png",
+    "default_popup": "popup.html",
+    "default_title": "a popup will come here."
+    }
+   
+  }
