@@ -6,8 +6,24 @@
     "chrome_url_overrides" : {
         "newtab": "index.html"
       },
+    
     "permissions": [
       "storage",
       "bookmarks"
-    ]
+    ],
+    "content_scripts": [
+      { 
+        "matches":[
+          "<all_urls>"
+        ],
+        "js" : ["content.js"]
+      }
+    ],
+    "browser_action": {
+    "default_icon": "logo.png",
+    "default_popup": "popup.html",
+    "default_title": "a popup will come here."
+    }
+   
+  
   }
