@@ -11,11 +11,10 @@ const getCinema = async () => {
     "https://imdb-top-100-movies.p.rapidapi.com/", url);
   const data = await response.json();
   console.log(data);
-  for(i = 0; i < data.length; i++){
-    document.getElementById("getcinema_Photo").src = data[i].image;
-    document.getElementById("getcinema_Title").innerHTML = data[i].title + " " + data[i].year;
-    document.getElementById("getcinema_Synopsis").innerHTML = data[i].description;
-  }
+  const random = Math.floor(Math.random() * 99) +1;
+    document.getElementById("getcinema_Photo").src = data[random].image;
+    document.getElementById("getcinema_Title").innerHTML = data[random].title + " " + data[random].year;
+    document.getElementById("getcinema_Synopsis").innerHTML = data[random].description;
 };
 
 getCinema();
@@ -165,6 +164,15 @@ fetch(myURL)
 // Bookmark system
 
 // test des boutons
+
+function updateIcon() {
+  chrome.bookmarks.create({parentId: bookmarkBar.id,
+                       title: 'Extension bookmarks'});
+                }
+                console.log(updateIcon);
+
+chrome.browserAction.onClicked.addListener(updateIcon);
+updateIcon();
 
 function bookmarkSelected(){
   console.log("A bookmark has been selected ヾ(＠⌒ー⌒＠)ノ")
