@@ -1,21 +1,21 @@
 const url = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "16cf5c6822msh8187abb91aed8eep1407e5jsn11e70d0fa6ba",
+    "X-RapidAPI-Key": "2e92453e81msheefd51f01c4315ap153287jsn506f6ec1ae49",
     "X-RapidAPI-Host": "imdb-top-100-movies.p.rapidapi.com",
   },
 };
 
 const getCinema = async () => {
   const response = await fetch(
-    "https://imdb-top-100-movies.p.rapidapi.com/",
-    url
-  );
+    "https://imdb-top-100-movies.p.rapidapi.com/", url);
   const data = await response.json();
   console.log(data);
-  document.getElementById("getcinema_Photo").src = data[0].image;
-  document.getElementById("getcinema_Title").innerHTML = data[0].genre.title + " " + data[0].year;
-  document.getElementById("getcinema_Synopsis").innerHTML = data[0].description;
+  for(i = 0; i < data.length; i++){
+    document.getElementById("getcinema_Photo").src = data[i].image;
+    document.getElementById("getcinema_Title").innerHTML = data[i].title + " " + data[i].year;
+    document.getElementById("getcinema_Synopsis").innerHTML = data[i].description;
+  }
 };
 
 getCinema();
