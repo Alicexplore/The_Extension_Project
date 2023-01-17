@@ -40,23 +40,39 @@ async function getArt() {
       document.getElementById("art").innerHTML =
         json.artistDisplayName + " " + json.period;
       document.getElementById("displayPhoto2").src = json.primaryImage;
+      let artTitle = json.title;
+      console.log(artTitle)
+      let artURL = json.objectURL;
+      console.log(artURL)     ;
+
+      function createBookmark1(){
+        chrome.bookmarks.create({
+          'title' : artURL ,
+          'url' : artURL
+        },
+        function(newBookmark){
+          console.log("added bookmark: " + newBookmark.title )
+        }
+      )
+      }
+      function bookmarkSelected1(){
+        console.log("bookmark Number 1 has been selected ヾ(⌐■_■)ノ♪");
+        createBookmark1()
+      }
+      
+      document.getElementById("buttonBookmark1").addEventListener("click", bookmarkSelected1);
+
       break;
     }
   }
-  function bookmarkSelected1(){
-    console.log("bookmark Number 1 has been selected ヾ(⌐■_■)ノ♪");
-    //createBookmark1()
-  }
-  
-  document.getElementById("buttonBookmark1").addEventListener("click", bookmarkSelected1);
+
 }
 getArt();
 
 //Génère un entier aléatoire 
 function entierAleatoire(min, max)
 { return Math.floor(Math.random() * (max - min + 1)) + min;}
-var entier = entierAleatoire(0, 29);
-console.log("test", entier)
+var entier = entierAleatoire(0, 28);
 
 let tabImg = [
   "photosHistoriques/1.png",
@@ -71,7 +87,7 @@ let tabImg = [
   "photosHistoriques/10.png", 
   "photosHistoriques/11.png",
   "photosHistoriques/12.png",
-  "photosHistoriques/13.png",
+  //"photosHistoriques/13.png",
   "photosHistoriques/14.png",
   "photosHistoriques/15.png", 
   "photosHistoriques/16.png",
@@ -103,7 +119,7 @@ let tabLegende = [
   "Times Square, 1945",
   "Fidel Castro et Che Guevarra en pleine partie de pêche en 1960",
   "Tournage du générique MGM en 1928",
-  "Machine pour soigner les tâches de rousseur dans les années 30",
+  //"Machine pour soigner les tâches de rousseur dans les années 30",
   "Des animaux étaient utilisés pour certaines thérapies en 1956",
   "Des peintres sur le pont de Brooklyn en 1914",
   "Des nouvelles chaussures durant la Seconde Guerre mondiale",
@@ -125,9 +141,23 @@ let tabLegende = [
 document.getElementById("historyImages").src=tabImg[entier];
 document.getElementById("legendImage").innerHTML=tabLegende[entier];
 
+let pictureTitle = tabLegende[entier] 
+let pictureURL = 'chrome-extension://ioaejlondmjlahnoflchaiifmgogidop/' + tabImg[entier]
+
+function createBookmark2(){
+  chrome.bookmarks.create({
+    'title' : pictureTitle ,
+    'url' : pictureURL
+  },
+  function(newBookmark){
+    console.log("added bookmark: " + newBookmark.title )
+  }
+)
+}
+
 function bookmarkSelected2(){
   console.log("Bookmark number 2 has been selected (づ￣ 3￣)づ");
-  //createBookmark2()
+  createBookmark2()
 }
 
 document.getElementById("buttonBookmark2").addEventListener("click", bookmarkSelected2);
@@ -192,7 +222,7 @@ fetch(myURL)
         }
         function bookmarkSelected4(){
           console.log("Bookmark number 4 has been selected ヾ(＠⌒ー⌒＠)ノ");
-          // createBookmark4()
+          createBookmark4()
         }
         
         document.getElementById("buttonBookmark4").addEventListener("click", bookmarkSelected4);
