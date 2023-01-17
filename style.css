@@ -199,6 +199,8 @@ body {
     margin-top: -0.1vw;
     color: #F2F2F2;
     letter-spacing: 0.3vw;
+    height: 85px;
+    
 }
 
 .secondtitle {
@@ -249,6 +251,7 @@ body {
     margin-top: -20vw;
     margin-left: -13vw;
     display: flex;
+   
 }
 
 .favorites3 {
@@ -311,3 +314,4 @@ body {
     margin-left: -50px;
     margin-top: -50px;
 }
+
