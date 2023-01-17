@@ -11,11 +11,10 @@ const getCinema = async () => {
     "https://imdb-top-100-movies.p.rapidapi.com/", url);
   const data = await response.json();
   console.log(data);
-  for(i = 0; i < data.length; i++){
-    document.getElementById("getcinema_Photo").src = data[i].image;
-    document.getElementById("getcinema_Title").innerHTML = data[i].title + " " + data[i].year;
-    document.getElementById("getcinema_Synopsis").innerHTML = data[i].director;
-  }
+  const random = Math.floor(Math.random() * 99) + 1;
+    document.getElementById("getcinema_Photo").src = data[random].image;
+    document.getElementById("getcinema_Title").innerHTML = data[random].title + " " + data[random].year;
+    document.getElementById("getcinema_Synopsis").innerHTML = data[random].description;
 };
 
 function bookmarkSelected3(){
@@ -25,7 +24,7 @@ function bookmarkSelected3(){
 
 document.getElementById("buttonBookmark3").addEventListener("click", bookmarkSelected3);
 
-//getCinema();
+getCinema();
 
 // fetch de l'API du Met
 async function getArt() {
