@@ -15,14 +15,31 @@ const getCinema = async () => {
     document.getElementById("getcinema_Photo").src = data[random].image;
     document.getElementById("getcinema_Title").innerHTML = data[random].title + " " + data[random].year;
     document.getElementById("getcinema_Synopsis").innerHTML = data[random].description;
+    
+    let cinemaTitle = data[random].title ;
+    let cinemaImage = data[random].image ;
+
+    console.log(cinemaTitle)
+    console.log(cinemaImage)
+
+    function createBookmark3(){
+      chrome.bookmarks.create({
+        'title' : cinemaTitle,
+        'url' : cinemaImage
+      },
+      function(newBookmark){
+        console.log("added bookmark: " + newBookmark.title )
+      }
+    )
+    }
+    function bookmarkSelected3(){
+      console.log("Bookmark number 3 has been selected ( ﾉ ﾟｰﾟ)ﾉ");
+      createBookmark3()
+    }
+    
+    document.getElementById("buttonBookmark3").addEventListener("click", bookmarkSelected3);
+
 };
-
-function bookmarkSelected3(){
-  console.log("Bookmark number 3 has been selected ( ﾉ ﾟｰﾟ)ﾉ");
-  //createBookmark3()
-}
-
-document.getElementById("buttonBookmark3").addEventListener("click", bookmarkSelected3);
 
 //getCinema();
 
@@ -40,6 +57,7 @@ async function getArt() {
       document.getElementById("art").innerHTML =
         json.artistDisplayName + " " + json.period;
       document.getElementById("displayPhoto2").src = json.primaryImage;
+
       let artTitle = json.title;
       console.log(artTitle)
       let artURL = json.objectURL;
@@ -229,28 +247,49 @@ fetch(myURL)
     }
     )
 
-// Bookmark system
+// Test bookmarks avec custom folder
 
-// test des boutons
+/* function createBookmarkForlder(){
+  chrome.bookmarks.create({
+		'title': 'Opera Extensions Resources',
+		'parentId': '1'
+	}, function (newEntry) {
+		chrome.bookmarks.create({
+			'title': 'Opera Extensions Documentation',
+			'url': 'http://dev.opera.com/extension/',
+			'parentId': newEntry.id
+		});
+		chrome.bookmarks.create({
+			'title': 'Opera Addons Gallery',
+			'url': 'http://addons.opera.com',
+			'parentId': newEntry.id
+		});
+		console.log('New Entry Added');
+	});
+}
 
+createBookmarkForlder()
 
+function addBookmark(){
+  chrome.bookmarks.create({
+    'title': 'Opera de Paris',
+    'url': 'https://www.operadeparis.fr/',
+    'parentId': '1'
+  });
+  console.log('Opera de Paris Added');
+}
 
+addBookmark() */
 
-
-/* //create a bookmark forlder. Be warned, it creates a new one with the same name eveytime it is called upon
-chrome.bookmarks.create(
-  {'title' : 'Bookmarks Forlder'},
+/* chrome.bookmarks.create(
+  {'parentId': bookmarkBar.id, 'title': 'Extension bookmarks'},
   function(newFolder) {
     console.log("added folder: " + newFolder.title);
   },
-) */
+);
 
-/* // create a bookmark
 chrome.bookmarks.create({
-    'title' : 'SteamCode Youtube',
-    'url' : 'https://www.youtube.com/watch?v=SahfSL6IwQk'
-  },
-  function(newBookmark){
-    console.log("added bookmark: " + newBookmark.title )
-  }
-) */
+  'parentId': extensionsFolderId,
+  'title': 'Extensions doc',
+  'url': 'https://developer.chrome.com/docs/extensions',
+}); */
