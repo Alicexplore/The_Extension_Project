@@ -31,6 +31,7 @@ list.addEventListener('click', function(ev) {
 }, false);
 
 /////////////////////////////////////////////////////// clicking on add button //////////////////////////////////////////////////////
+var input = [];
 
 function newElement() {
   var li = document.createElement("li");
@@ -41,6 +42,8 @@ function newElement() {
     // alert("Ready to write your next  ");
   } else {
     document.getElementById("myUL").appendChild(li);
+    input.push(inputValue);
+    localStorage.setItem("myInput", input.toString());
   }
   document.getElementById("myInput").value = "";
 
@@ -59,9 +62,28 @@ function newElement() {
     }
   }
   document.getElementById("newElement").addEventListener("click", newElement);
+  localStorage.setItem(inputValue);
 };
-
 newElement();
+
+window.onload = function () {
+    var storedInput = localStorage.getItem("myInput");
+    if (storedInput) {
+      input = storedInput.split(",");
+      for (var i = 0; i < input.length; i++) {
+        var li = document.createElement("li");
+        li.innerHTML = input[i];
+        li.addEventListener("click", checked);
+        console.log("onload,checked")
+        var span = document.createElement("span");
+        span.innerHTML = "x";
+        span.addEventListener("click", deleteToDo);
+        console.log("onload, delete")
+        li.appendChild(span);
+        ul.appendChild(li);
+      }
+    }
+  };
 
 
 
