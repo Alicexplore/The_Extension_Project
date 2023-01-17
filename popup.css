@@ -1,0 +1,152 @@
+@import url('https://fonts.cdnfonts.com/css/apercu');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #222222;
+    width: 400px;
+    height: 550px;
+}
+
+/*//////////////////////////////////////////////////////// headers ////////////////////////////////////////////////////*/
+
+.title {
+   font-family: "Abril Fatface", cursive;
+   font-size: 13vw;
+   letter-spacing: 0.5vw;
+   color: #F2F2F2;
+   text-align: center;
+   margin-top: 5vw;
+}
+
+.littletitle {
+    font-family: "apercu", sans-serif;
+    font-size: 4vw;
+    color: #02e2cc; 
+    letter-spacing: 0.5vw;
+    margin-top: -11vw;
+    text-align: center;
+}
+
+
+/*//////////////////////////////////////////////////////// list items ////////////////////////////////////////////////////*/
+
+ul li {
+    cursor: pointer;
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #222222;
+    font-size: 5vw;
+    font-family: "apercu", sans-serif;
+    color: #F2F2F2;
+    transition: 0.2s;
+  
+/*//////////////////////////////////////////////////////// unselectable ////////////////////////////////////////////////////*/
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /*/////////////////////////////// Set all odd list items to a different color (zebra-stripes) ///////////////////////////*/
+
+  ul li:nth-child(odd) {
+    background: #222222;
+  }
+  
+  /*/////////////////////////////////////////////////// background on hover ///////////////////////////////////////////////*/
+  
+  ul li:hover {
+    background: #02e2cc;
+    color: #222222;
+  }
+  
+ /*///////////////////////////////////////////////////// when clicked /////////////////////////////////////////////////////*/
+
+  ul li.checked {
+    
+    background: #222222;
+    color: #F2F2F2;
+    text-decoration: line-through;
+  }
+  
+ /*///////////////////////////////////////////////////// ckecked mark //////////////////////////////////////////////////*/
+
+  ul li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #F2F2F2;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+  }
+  
+  /*///////////////////////////////////////////////////// close button //////////////////////////////////////////////////*/
+
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+  }
+  
+  .close:hover {
+    background-color: #02e2cc;
+    color: white;
+  }
+  
+   /*///////////////////////////////////////////////////// header background //////////////////////////////////////////////////*/
+
+  .header {
+    background-color: #222222; /*#02e2cc*/
+    padding: 30px 40px;
+    color: white;
+    text-align: center;
+  }
+  
+   /*///////////////////////////////////////////////////// clear floats ///////////////////////////////////////////////////////*/
+   
+  .header:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+ /*//////////////////////////////////////////////////////// input style /////////////////////////////////////////////////////*/
+
+  input {
+    margin: 0;
+    border: none;
+    border-radius: 0;
+    width: 75%;
+    padding: 10px;
+    float: left;
+    font-size: 16px;
+    font-family: "apercu", sans-serif;
+  }
+  
+  /*//////////////////////////////////////////////////////// add button /////////////////////////////////////////////////////*/
+
+  .addBtn {
+    padding: 10px;
+    width: 25%;
+    background: #02e2cc;
+    color: #222222;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 0;
+  }
+  
+  .addBtn:hover {
+    background-color: #01ffe6;
+  }
+  
+ 

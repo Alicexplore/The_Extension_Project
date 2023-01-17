@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Kult",
+    "name": "brain.",
     "description": "Welcome culture to your opening tab",
     "version": "0.0.0.1",
     "chrome_url_overrides" : {
@@ -9,7 +9,13 @@
     "permissions": [
       "storage",
       "bookmarks"
-    ]
+    ],
+    "icons": { "16": "./img/g-11.png",
+               "48": "./img/g-10.png",
+               "128": "./img/g-09.png" },
+    "action": {
+      "default_popup": "popup.html"
+    }
   }
 
   
