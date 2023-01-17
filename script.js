@@ -24,7 +24,7 @@ function bookmarkSelected3(){
 
 document.getElementById("buttonBookmark3").addEventListener("click", bookmarkSelected3);
 
-getCinema();
+//getCinema();
 
 // fetch de l'API du Met
 async function getArt() {
@@ -176,8 +176,8 @@ fetch(myURL)
         let myLink = response.data.Births[EventID].links[0].link
         eventLink.href = myLink
         eventLink.target="_blank"
-        // eventLink.innerText = "Learn more about this person ✍️(◔◡◔)"
-        // document.getElementById('history').appendChild(eventLink)
+        //eventLink.innerText = "Learn more about this person ✍️(◔◡◔)"
+        document.getElementById('history').appendChild(eventLink)
 
 
         function createBookmark4(){
