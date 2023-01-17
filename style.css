@@ -45,7 +45,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  color: #ffffff;
+  color: #02e2cc;
   background-color: rgba(200, 200, 200, 0.5);
   width: 350px;
   height: 350px;
@@ -85,7 +85,6 @@ body {
     position: relative;
     background: #2f2f2f;
     display: flex;
-    flex-direction: column;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -126,12 +125,12 @@ body {
 }
 
 .card3 .card-title {
-    padding: 20px 10px;
-    font-size: 25px;
+    padding: 8px 10px;
+    font-size: 20px;
     font-family: "apercu";
     font-weight: bold;
-    color: #F2F2F2;
-    margin-top: -1vw;
+    color: #02e2cc;
+    margin-top: 1vw;
     z-index: 1;
 }
 
@@ -166,6 +165,8 @@ body {
     line-height: 20px;
     font-family: "apercu";
     font-weight: bold;
+    text-align: center;
+    
 
 }
 
@@ -178,10 +179,10 @@ body {
 .card3 .card-text {
     line-height: 20px;
     margin-top: -1vw;
-    font-size: 20px;
+    font-size: 15px;
     font-family: "apercu";
     font-weight: bold;
-    
+    color: #ffffff;
 }
 
 /* .chien {
@@ -206,7 +207,7 @@ body {
     color: #02e2cc;  /*#E2C202; #626262; */
     letter-spacing: 0.3vw;
     margin-left: 1.8vw;
-    margin-top: -5.1vw;
+    
 }
 
 .menufavorites {
@@ -265,6 +266,17 @@ body {
     margin-left: -59vw;
     display: flex;
 }
+
+.favorites5 {
+    cursor:pointer;
+    position: absolute;
+    margin-top: -2vw;
+    margin-left: -65vw;
+    display: flex;
+    background-color:#ffffff00;
+    border-width: 0ch;
+}
+
 .history{
      font-size: medium;
     color: #F2F2F2;
@@ -292,3 +304,10 @@ body {
     z-index: 1;
 }
 
+#legendImage, #artTitle, #art, #getcinema_Title, #getcinema_Synopsis{
+    width: 250px;
+    height: 200px;
+    position: relative;
+    margin-left: -50px;
+    margin-top: -50px;
+}

@@ -1,22 +1,21 @@
 const url = {
   method: "GET",
   headers: {
-    "X-RapidAPI-Key": "2e92453e81msheefd51f01c4315ap153287jsn506f6ec1ae49",
+    "X-RapidAPI-Key": "4d242cc7e7mshe4b3fe2ef3a0d5cp14af63jsn1b543b1e9d7f",
     "X-RapidAPI-Host": "imdb-top-100-movies.p.rapidapi.com",
   },
 };
 
- const getCinema = async () => {
-   const response = await fetch(
-     "https://imdb-top-100-movies.p.rapidapi.com/", url);
-   const data = await response.json();
-   console.log(data);
-   for(i = 0; i < data.length; i++){
-     document.getElementById("getcinema_Photo").src = data[i].image;
-     document.getElementById("getcinema_Title").innerHTML = data[i].title + " " + data[i].year;
-     document.getElementById("getcinema_Synopsis").innerHTML = data[i].description;
-   }
- };
+const getCinema = async () => {
+  const response = await fetch(
+    "https://imdb-top-100-movies.p.rapidapi.com/", url);
+  const data = await response.json();
+  console.log(data);
+  const random = Math.floor(Math.random() * 99) + 1;
+    document.getElementById("getcinema_Photo").src = data[random].image;
+    document.getElementById("getcinema_Title").innerHTML = data[random].title + " " + data[random].year;
+    document.getElementById("getcinema_Synopsis").innerHTML = data[random].description;
+};
 
 function bookmarkSelected3(){
   console.log("Bookmark number 3 has been selected ( ﾉ ﾟｰﾟ)ﾉ");
@@ -192,22 +191,22 @@ fetch(myURL)
         // Je séléctionne un évènement de naissance aléatoirement
         let historyArrayLength = response.data.Births.length - 1
         let EventID = getRandomInt(historyArrayLength)
-        // J'extrait l'année de l'évènement 
-        let eventYear = document.createElement('p');
-        const myEventYear = response.data.Births[EventID].year
-        eventYear.innerText = myEventYear
-        document.getElementById('history').appendChild(eventYear);
         // J'extrait le texte de cet évènement
         let eventDescription = document.createElement('p');
         const myDescription = response.data.Births[EventID].text
         eventDescription.innerText = myDescription
         document.getElementById('history').appendChild(eventDescription);
+        // J'extrait l'année de l'évènement 
+        let eventYear = document.createElement('p');
+        const myEventYear = response.data.Births[EventID].year
+        eventYear.innerText = myEventYear
+        document.getElementById('history').appendChild(eventYear);
         // J'ajoute le lien wikipedia
         let eventLink= document.createElement('a');
         let myLink = response.data.Births[EventID].links[0].link
         eventLink.href = myLink
         eventLink.target="_blank"
-        eventLink.innerText = "Learn more about this person ✍️(◔◡◔)"
+        //eventLink.innerText = "Learn more about this person ✍️(◔◡◔)"
         document.getElementById('history').appendChild(eventLink)
 
 
