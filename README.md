@@ -1,6 +1,6 @@
 # The_Extension_Project
 
-We created a opening tab and pop-up to-do list about culture 🧠
+We created an opening tab and pop-up to-do list about culture 🧠
 <br /><br />
 
 ## About this project
