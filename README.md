@@ -40,7 +40,7 @@ Finally, we thought it would be interesting to add a pop-up to-do list so users 
 
 ## API Resources 
 
-• https://imdb-top-100-movies.p.rapidapi.com/ <br />
-• https://collectionapi.metmuseum.org/ <br />
-• http://history.muffinlabs.com/date/
+• https://imdb-top-100-movies.p.rapidapi.com <br />
+• https://collectionapi.metmuseum.org <br />
+• http://history.muffinlabs.com
 
