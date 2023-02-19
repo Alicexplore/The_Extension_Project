@@ -33,7 +33,7 @@ Finally, we thought it would be interesting to add a pop-up to-do list so users 
 ## Co-workers
 
 • https://github.com/HortenseLaclaviere <br />
-• https://github.com/DrissHaddadi
+• https://github.com/DrissHaddadi <br />
 • https://github.com/alicexplore <br />
 
 <br />
