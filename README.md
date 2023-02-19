@@ -17,7 +17,7 @@ Finally, we thought it would be interesting to add a pop-up to-do list so users 
 
 <br />
 
-## New Homepage Preview
+## Preview
 
 ![video-output-2A2A046D-E230-41FA-A69D-013B9048D582](https://user-images.githubusercontent.com/102388803/216974347-a66bb449-4e3e-455f-b6ac-aa478c4dcc35.gif)
 
@@ -30,11 +30,11 @@ Finally, we thought it would be interesting to add a pop-up to-do list so users 
 
 <br />
 
-## Contributors 
+## Co-workers
 
-• https://github.com/alicexplore <br />
 • https://github.com/HortenseLaclaviere <br />
 • https://github.com/DrissHaddadi
+• https://github.com/alicexplore <br />
 
 <br />
 
